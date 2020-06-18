@@ -45,4 +45,6 @@ $app->delete('/delete-route[/{name}]', function (Request $request, Response $res
     return $response;
 });
 
+$app->addRoutingMiddleware();
+$app->addErrorMiddleware(true, true, true);
 $app->run();
