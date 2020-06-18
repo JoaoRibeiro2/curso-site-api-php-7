@@ -36,12 +36,18 @@ $app->get('/get-route-03[/{name}]', function (Request $request, Response $respon
     return $response;
 });
 
-$app->delete('/delete-route[/{name}]', function (Request $request, Response $response, array $args) {
+$app->delete('/delete-route[/{name}[/{lastname}]]', function (Request $request, Response $response, array $args) {
     $params = $request->getQueryParams();
     $id = $params['id'];
     $name = $args['name'];
+    $lastname = $args['lastname'];
 
-    $response->getBody()->write($name ? "{$name} - {$id} foi deletado!" : "Niguém foi deletado!");
+    $response->getBody()->write($name ? "{$name} {$lastname} - {$id} foi deletado!" : "Niguém foi deletado!");
+    return $response;
+});
+
+$app->get('/r6/{id:[0-9]+}', function (Request $request, Response $response, array $args) {
+    $response->getBody()->write("R6 {$args['id']}");
     return $response;
 });
 
