@@ -8,5 +8,8 @@
         "guzzlehttp/psr7": "^1.6",
         "http-interop/http-factory-guzzle": "^1.0",
         "laminas/laminas-diactoros": "^2.3"
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3.12"
     }
 }
