@@ -17,11 +17,12 @@ class People
     }
 
     /**
-     * @param array<array<People::*, string|integer>> $people
+     * @param array<array<People::*, string|float>> $people
      * @return float
      */
     public function calculatePeopleAge(array $people): float
     {
+        /** @var array<float> $ages */
         $ages = array_map(fn(array $person) => $person[self::AGE], $people);
 
         return $this->calculator->sumOfAllNumbers(...$ages);
